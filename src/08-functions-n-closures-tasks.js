@@ -158,19 +158,20 @@ function retry(func, attempts) {
  * cos(3.141592653589793) ends
  *
  */
-function logger(func, logFunc) {
-  return function (...args) {
-    const argString = args.map((arg) => JSON.stringify(arg)).join(', ');
-    logFunc(`${func.name}(${argString}) starts`);
-    try {
-      const result = func.apply(this, args);
-      logFunc(`${func.name}(${argString}) ends`);
-      return result;
-    } catch (error) {
-      logFunc(`${func.name}(${argString}) ends with error: ${error.message}`);
-      throw error;
-    }
-  };
+function logger(/* func, logFunc */) {
+  // return function (...args) {
+  //   const argString = args.map((arg) => JSON.stringify(arg)).join(', ');
+  //   logFunc(`${func.name}(${argString}) starts`);
+  //   try {
+  //     const result = func.apply(this, args);
+  //     logFunc(`${func.name}(${argString}) ends`);
+  //     return result;
+  //   } catch (error) {
+  //     logFunc(`${func.name}(${argString}) ends with error: ${error.message}`);
+  //     throw error;
+  //   }
+  // };
+  throw new Error('Not implemented');
 }
 
 /**
